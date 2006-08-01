@@ -1,9 +1,8 @@
 package Email::Folder::POP3;
-# $Id: POP3.pm,v 1.1 2004/12/29 01:36:40 cwest Exp $
 use strict;
 
 use vars qw[$VERSION $POP3];
-$VERSION   = sprintf "%d.%02d", split m/\./, (qw$Revision: 1.1 $)[1];
+$VERSION   = '1.011';
 $POP3    ||= 'Net::POP3';
 
 use base qw[Email::Folder::Reader];
@@ -80,6 +79,12 @@ L<Email::Folder::Reader>,
 L<Email::FolderType::Net>,
 L<URI::pop>,
 L<Net::POP3>.
+
+=head1 PERL EMAIL PROJECT
+
+This module is maintained by the Perl Email Project.
+
+  http://emailproject.perl.org/wiki/Email::Folder::POP3
 
 =head1 AUTHOR
 
