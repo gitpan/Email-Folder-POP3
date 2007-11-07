@@ -1,9 +1,9 @@
 --- #YAML:1.0
 name:                Email-Folder-POP3
-version:             1.012
+version:             1.013
 abstract:            Email::Folder Access to POP3 Folders
 license:             perl
-generated_by:        ExtUtils::MakeMaker version 6.32
+generated_by:        ExtUtils::MakeMaker version 6.36_01
 distribution_type:   module
 requires:     
     Email::Folder:                 0.84
