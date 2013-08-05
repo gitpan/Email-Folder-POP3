@@ -1,11 +1,12 @@
-package Email::Folder::POP3;
 use strict;
+use warnings;
+package Email::Folder::POP3;
+# ABSTRACT: Email::Folder Access to POP3 Folders
 
-use vars qw[$VERSION $POP3];
-$VERSION   = '1.013';
-$POP3    ||= 'Net::POP3';
+our $VERSION   = '1.013';
+our $POP3    ||= 'Net::POP3';
 
-use base qw[Email::Folder::Reader];
+use parent qw[Email::Folder::Reader];
 use Net::POP3;
 use URI;
 
@@ -28,7 +29,7 @@ sub _server {
     ($user, $pass) = split ':', $uri->userinfo, 2 unless $user;
 
     $server->login($user, $pass) if $user;
-    
+
     $self->{_next} = 1;
     return $self->{_server} = $server;
 }
@@ -48,17 +49,23 @@ sub next_message {
 
 __END__
 
+=pod
+
 =head1 NAME
 
 Email::Folder::POP3 - Email::Folder Access to POP3 Folders
+
+=head1 VERSION
+
+version 1.014
 
 =head1 SYNOPSIS
 
   use Email::Folder;
   use Email::FolderType::Net;
-  
+
   my $folder = Email::Folder->new('pop://user:pass@example.com:110');
-  
+
   print $_->header('Subject') for $folder->messages;
 
 =head1 DESCRIPTION
@@ -80,24 +87,15 @@ L<Email::FolderType::Net>,
 L<URI::pop>,
 L<Net::POP3>.
 
-=head1 PERL EMAIL PROJECT
-
-This module is maintained by the Perl Email Project.
-
-  http://emailproject.perl.org/wiki/Email::Folder::POP3
-
 =head1 AUTHOR
 
-Ricardo SIGNES, <F<rjbs@cpan.org>> (current maintainer).
+GomoR <netpkt@gomor.org>
 
-Casey West, <F<casey@geeknest.com>> (previous maintainer)
+=head1 COPYRIGHT AND LICENSE
 
-GomoR, <F<netpkt@gomor.org>> (original author)
+This software is copyright (c) 2004 by GomoR <netpkt@gomor.org>.
 
-=head1 COPYRIGHT
-
-  Copyright (c) 2004 GomoR.  All rights reserved.
-  This module is free software; you can redistribute it and/or modify it
-  under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
