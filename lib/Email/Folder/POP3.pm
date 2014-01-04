@@ -1,9 +1,11 @@
 use strict;
 use warnings;
 package Email::Folder::POP3;
+{
+  $Email::Folder::POP3::VERSION = '1.015';
+}
 # ABSTRACT: Email::Folder Access to POP3 Folders
 
-our $VERSION   = '1.013';
 our $POP3    ||= 'Net::POP3';
 
 use parent qw[Email::Folder::Reader];
@@ -51,13 +53,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Email::Folder::POP3 - Email::Folder Access to POP3 Folders
 
 =head1 VERSION
 
-version 1.014
+version 1.015
 
 =head1 SYNOPSIS
 
